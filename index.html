@@ -2,60 +2,27 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="theme-color" content="#ff6b00" />
-    <meta
-      name="description"
-      content="Sistema de gestión Aero Jump - Reservas, Kiosco y Finanzas"
-    />
+    <title>Aero Jump | Gestión</title>
     
-    <meta name="format-detection" content="telephone=no">
-
-    <title>Aero Jump | Gestión Pro</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-      /* Estilos críticos de carga (Skeleton Loader pre-renderizado) */
-      body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background-color: #1a1a1a; /* Fondo oscuro inicial */
-        color: white;
-      }
-      #root-loader {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-      }
-      .spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid rgba(255, 107, 0, 0.2);
-        border-left-color: #ff6b00;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
+      body { margin: 0; font-family: 'Inter', sans-serif; background-color: #1a1a1a; color: white; }
+      #root-loader { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
+      .spinner { width: 50px; height: 50px; border: 5px solid rgba(255, 107, 0, 0.2); border-left-color: #ff6b00; border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
     </style>
   </head>
   <body>
-    <noscript>Necesitas activar JavaScript para ejecutar Aero Jump.</noscript>
-    
     <div id="root">
       <div id="root-loader">
         <div class="spinner"></div>
-        <p style="margin-top: 20px; font-weight: 600;">Cargando Aero Jump...</p>
+        <p style="margin-top: 20px;">Iniciando Sistema...</p>
       </div>
     </div>
-
-    </body>
+  </body>
 </html>
