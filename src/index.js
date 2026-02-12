@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-// Comenta la línea de estilos temporalmente para descartar errores de CSS
-// import './styles/layout.css'; 
 
+// Forzamos un renderizado manual sin dependencias de otros archivos
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <App />
+  <div style={{background: 'orange', color: 'black', height: '100vh', padding: '50px'}}>
+    <h1>PRUEBA DE CONEXIÓN</h1>
+    <p>Si ves esto en naranja, el sistema de despliegue funciona.</p>
+    <p>Hora actual: {new Date().toLocaleTimeString()}</p>
+  </div>
 );
