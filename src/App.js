@@ -1,29 +1,47 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import { auth } from './firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Detecta si hay una sesión activa de antes
+    console.log("Iniciando escucha de Auth...");
+    
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Respuesta de Firebase recibida:", currentUser);
       setUser(currentUser);
       setLoading(false);
     });
-    return () => unsubscribe();
-  }, []);
 
-  if (loading) return <div className="spinner">Cargando Aero Jump...</div>;
+    // Seguridad: Si en 5 segundos no responde, algo anda mal
+    const timer = setTimeout(() => {
+      if (loading) {
+        console.warn("Firebase tardó demasiado. Revisa tu Configuración/Conexión.");
+        // Opcional: setLoading(false) para ver si al menos carga el Login
+      }
+    }, 5000);
+
+    return () => {
+      unsubscribe();
+      clearTimeout(timer);
+    };
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div style={{color: 'white', textAlign: 'center', marginTop: '20%'}}>
+        <h2>Iniciando Sistema...</h2>
+        <p>Esperando respuesta de Firebase...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">
-      {user ? <Dashboard user={user} /> : <Login />}
+      {user ? <h1>Bienvenido al Aero Jump</h1> : <div>Formulario de Login Aquí</div>}
     </div>
   );
 }
-
-export default App;
