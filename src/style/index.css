@@ -1,0 +1,25 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Botones Gigantes para Táctil y POS */
+.btn-pos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.btn-pos-item {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
